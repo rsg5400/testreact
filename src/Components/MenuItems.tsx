@@ -23,31 +23,52 @@ const MenuItems:FC<MenuItem> = ({ title, url, subMenu, depthLevel = 0}) => {
     const onMouseLeave = () => {
         setDropdown(false);
        };
-      
-    return (
-        <li className="menu-items" ref={ref} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-         {subMenu ? (
-          <>
-           <button
-
-            aria-expanded={dropdown ? "true" : "false"}
-            onClick={() => setDropdown((prev) => !prev)}
-           >
-            {title}{" "}
-            {depthLevel  > 0 ? <span>&raquo;</span> : <span className="arrow" />}
-           </button>
-           <Dropdown 
-           
-            submenus={subMenu}
-            dropdown={dropdown} 
-            depthLevel={depthLevel}
-           />
-          </>
-         ) : (
-            <Link to={url}>{title}</Link>         
-            )}
+ 
+      const toggleDropdown = () => {
+        setDropdown((prev) => !prev);
+      };
+      return (
+        <li
+          className="menu-items"
+          ref={ref}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}>
+          {url && subMenu ? (
+            <>
+              <button
+                type="button"
+                aria-haspopup="menu"
+                aria-expanded={dropdown ? "true" : "false"}
+                onClick={() => toggleDropdown()}>
+                <Link to={url}>{title}</Link>
+                {depthLevel > 0 ? <span>&raquo;</span> : <span className="arrow" />}
+              </button>
+              <Dropdown
+                depthLevel={depthLevel}
+                submenus={subMenu}
+                dropdown={dropdown}
+              />
+            </>
+          ) : !url && subMenu ? (
+            <>
+              <button
+                type="button"
+                aria-haspopup="menu"
+                aria-expanded={dropdown ? "true" : "false"}>
+                {title}
+                {depthLevel > 0 ? <span>&raquo;</span> : <span className="arrow" />}
+              </button>
+              <Dropdown
+                depthLevel={depthLevel}
+                submenus={subMenu}
+                dropdown={dropdown}
+              />
+            </>
+          ) : (
+            <Link to={url}>{title}</Link>
+          )}
         </li>
-       );
+      );
 };
 
 export default MenuItems;
