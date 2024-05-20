@@ -16,13 +16,20 @@ const MenuItems:FC<MenuItem> = ({ title, url, subMenu, depthLevel = 0}) => {
         setDropdown(false);
     });
   
+    const onMouseEnter = () => {
+        setDropdown(true);
+       };
+       
+    const onMouseLeave = () => {
+        setDropdown(false);
+       };
       
     return (
-        <li className="menu-items" ref={ref}>
+        <li className="menu-items" ref={ref} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
          {subMenu ? (
           <>
            <button
-            // ...
+
             aria-expanded={dropdown ? "true" : "false"}
             onClick={() => setDropdown((prev) => !prev)}
            >
@@ -30,7 +37,7 @@ const MenuItems:FC<MenuItem> = ({ title, url, subMenu, depthLevel = 0}) => {
             {depthLevel  > 0 ? <span>&raquo;</span> : <span className="arrow" />}
            </button>
            <Dropdown 
-            // ...
+           
             submenus={subMenu}
             dropdown={dropdown} 
             depthLevel={depthLevel}
