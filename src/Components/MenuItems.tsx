@@ -27,12 +27,17 @@ const MenuItems:FC<MenuItem> = ({ title, url, subMenu, depthLevel = 0}) => {
       const toggleDropdown = () => {
         setDropdown((prev) => !prev);
       };
+      const closeDropdown = () => {
+        dropdown && setDropdown(false);
+      };
       return (
         <li
           className="menu-items"
           ref={ref}
           onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}>
+          onMouseLeave={onMouseLeave}
+          onClick={closeDropdown}
+          >
           {url && subMenu ? (
             <>
               <button
