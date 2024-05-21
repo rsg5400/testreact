@@ -3,7 +3,7 @@ import { FC } from 'react';
 
 import { Link } from 'react-router-dom';
 
-const Logo = require('../Images/logo.webp'); 
+const Logo = require('../Images/atom-symbol-abstract-vector.webp'); 
 
 const Header:FC = () => {
     return (
