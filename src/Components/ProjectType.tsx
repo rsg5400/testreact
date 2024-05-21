@@ -7,7 +7,7 @@ interface DropdownInterface {
 }
 //make funciton more universal for starting state 
 const ProjectDropDown: React.FC<DropdownInterface> = ({items}) => {
-  const [dropdown, setShowDropdown] = useState(false);
+    const [dropdown, setShowDropdown] = useState(false);
 
     const {selectedOption, setSelectedOption} = useContext(ProjectContext);
  // const [selectedOption, setSelectedOption] = useState(items[0]); // Initial selected option. change when context is passed
@@ -32,6 +32,7 @@ const ProjectDropDown: React.FC<DropdownInterface> = ({items}) => {
       {dropdown && (
         <ul className={`dropdown show`}>    
             {items.map((option) => (
+            option !== selectedOption &&
             <li key={option} onClick={() => handleOptionClick(option)}>
               {option}
             </li>

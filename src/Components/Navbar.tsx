@@ -1,5 +1,4 @@
 import { FC, useContext } from 'react'
-import { menuItemsData } from '../menuItemsData';
 import MenuItems from './MenuItems';
 import DropDownNameInPlace from './ProjectType';
 
