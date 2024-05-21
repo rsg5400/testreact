@@ -3,14 +3,15 @@ import { FC } from 'react';
 
 import { Link } from 'react-router-dom';
 
-const Logo = require('../Images/atom-symbol-abstract-vector.webp'); 
+//const Logo = require('C:\Users\robert.gallagher\tomisredesign\src\Images\logo.webp'); 
+//             <img src={Logo} alt="Logo" className="tomisLogo" />
 
 const Header:FC = () => {
     return (
     <header>
         <div className="nav-area">
         <Link to="/" className="logo"> 
-            <img src={Logo} alt="Logo" className="tomisLogo" />
+        Logo
         </Link>
         <Navbar />
         </div>

@@ -1,5 +1,4 @@
 import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
 
 import HelpDeskCard from '../Components/Card';
 import { CardProps } from '../Components/Card';

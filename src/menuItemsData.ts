@@ -5,7 +5,7 @@ export interface SubMenu {
     subMenu?: SubMenu[];
 }
 
-export interface MenuItem {
+export interface MenuItemInterface {
     title: string;
     url: string;
     subMenu?: SubMenu[];
@@ -14,7 +14,7 @@ export interface MenuItem {
 
 
   // Define the menu data array with the MenuItem type
-export const menuItemsData: MenuItem[] = [
+export const menuItemsData: MenuItemInterface[] = [
 {
     title: 'Home',
     url: '/',
@@ -54,3 +54,51 @@ export const menuItemsData: MenuItem[] = [
 
 },
 ];
+
+
+
+export const menuItemsData2: MenuItemInterface[] = [
+    {
+        title: 'Home',
+        url: '/',
+        
+    },
+    {
+        title: 'Engineering Support',
+        url: '/engineeringSupport',
+        subMenu: [
+            {title: "Aur Main", url: "aurMain", subMenu:[{title: "Something", url:"/something"}]},
+            {title: "Deport Induction System", url: "inductionSystem"}
+        ],
+    },
+    
+    ];
+
+
+
+    export const menuItemsData3: MenuItemInterface[] = [
+        {
+            title: 'Home',
+            url: '/',
+            
+        },
+        {
+            title: 'Engineering Support',
+            url: '/engineeringSupport',
+            subMenu: [
+                {title: "Aur Main", url: "aurMain", subMenu:[{title: "Something", url:"/something"}]},
+                {title: "Deport Induction System", url: "inductionSystem"}
+            ],
+        },
+        
+        {
+            title: 'Help Desk',
+            url: '/helpdesk',
+        
+        },
+        {
+            title: 'Reports',
+            url: '/reports',
+        
+        },
+        ];
